@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        Demo Application to apply for a job in Growth Acceleration Partners. This app shows how to interact between an MVC and WebAPI (using RestSharp)
+    </p>
+
+    <section class="contact">
+        <header>
+            <h3>Phone</h3>
+        </header>
+        <p>
+            <span class="label">Main:</span>
+            <span>(+506) 8708-7087</span>
+        </p>
+    </section>
+
+    <section class="contact">
+        <header>
+            <h3>Email</h3>
+        </header>
+        <p>
+            <span class="label">Job Applicant:</span>
+            <span><a href="mailto:cr.gabo@gmail.com">Gabriel Corrales (cr.gabo@gmail.com)</a></span>
+        </p>
+
+    </section>
+
+</article>
+
+<aside>
+    <h3>Navigation tree</h3>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Stores", "Index", "Store")</li>
+        <li>@Html.ActionLink("Articles", "Index", "Article")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+    </ul>
+</aside>

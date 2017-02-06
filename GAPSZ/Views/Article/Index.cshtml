@@ -1,0 +1,82 @@
+﻿@model IEnumerable<GAPSZ.Models.ServerDataModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Articles";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.article.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.article.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.article.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.article.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.article.Total_in_shelf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.article.Total_in_vault)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.article.Store_name)
+            </th>
+            <th></th>
+        </tr>
+    
+        @if (Model.FirstOrDefault().success == true)
+        {
+            foreach (var item in Model.FirstOrDefault().articles)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_in_shelf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_in_vault)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store_name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+            }
+        }
+
+    </table>
+</body>
+</html>

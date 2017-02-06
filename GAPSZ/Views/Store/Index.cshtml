@@ -1,0 +1,57 @@
+﻿@model IEnumerable<GAPSZ.Models.ServerDataModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Stores";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.store.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.store.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.store.Address)
+            </th>
+        </tr>
+
+        
+        @if (Model.FirstOrDefault().success == true)
+        {
+            foreach (var item in Model.FirstOrDefault().stores)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Address)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+            }
+        }
+    </table>
+</body>
+</html>
